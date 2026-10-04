@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>UPI Guard — Admin Dashboard</title>
+
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <header class="navbar">
+
+        <div class="brand">
+
+            <div class="brand-logo">
+                U
+            </div>
+
+            <div class="brand-name">
+                UPI Guard
+            </div>
+
+            <div class="brand-subtitle">
+                Admin Console
+            </div>
+
+        </div>
+
+
+        <nav class="nav-links">
+
+            <a href="admin.html" class="active">
+                Dashboard
+            </a>
+
+            <a href="transactions.html">
+                Transactions
+            </a>
+
+            <a href="alerts.html">
+                Alerts
+            </a>
+
+            <a href="model.html">
+                Model
+            </a>
+
+            <a href="../Dashboard/dashboard.html">
+                User View
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =========================
+         MAIN
+    ========================== -->
+
+    <main class="admin-container">
+
+
+        <!-- HEADER -->
+
+        <section class="page-header">
+
+            <div>
+
+                <h1>
+                    Admin dashboard
+                </h1>
+
+                <p>
+                    Monitor the UPI Guard fraud detection system.
+                </p>
+
+            </div>
+
+
+            <div class="system-status">
+
+                <span class="status-dot"></span>
+
+                System Online
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             SUMMARY CARDS
+        ========================== -->
+
+        <section class="stats-grid">
+
+
+            <div class="stat-card">
+
+                <span class="stat-title">
+                    DATASET RECORDS
+                </span>
+
+                <strong id="datasetRecords">
+                    151,668
+                </strong>
+
+                <span class="stat-description">
+                    Transactions loaded
+                </span>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <span class="stat-title">
+                    TRANSACTIONS
+                </span>
+
+                <strong id="totalTransactions">
+                    0
+                </strong>
+
+                <span class="stat-description">
+                    Processed by system
+                </span>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <span class="stat-title">
+                    FRAUD CASES
+                </span>
+
+                <strong
+                    id="fraudCases"
+                    class="danger-number"
+                >
+                    3,131
+                </strong>
+
+                <span class="stat-description">
+                    Dataset fraud records
+                </span>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <span class="stat-title">
+                    FRAUD RATE
+                </span>
+
+                <strong
+                    id="fraudRate"
+                >
+                    2.06%
+                </strong>
+
+                <span class="stat-description">
+                    Current dataset
+                </span>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <span class="stat-title">
+                    MODEL
+                </span>
+
+                <strong class="model-status">
+                    XGBoost
+                </strong>
+
+                <span class="stat-description">
+                    Primary classifier
+                </span>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =========================
+             TWO COLUMN SECTION
+        ========================== -->
+
+        <section class="two-column">
+
+
+            <!-- DATASET -->
+
+            <div class="panel">
+
+                <div class="panel-header">
+
+                    <div>
+
+                        <h2>
+                            Dataset overview
+                        </h2>
+
+                        <p>
+                            Current fraud detection dataset
+                        </p>
+
+                    </div>
+
+                    <span class="badge">
+                        Loaded
+                    </span>
+
+                </div>
+
+
+                <div class="dataset-grid">
+
+
+                    <div class="dataset-item">
+
+                        <span>
+                            Total records
+                        </span>
+
+                        <strong>
+                            151,668
+                        </strong>
+
+                    </div>
+
+
+                    <div class="dataset-item">
+
+                        <span>
+                            Fraud transactions
+                        </span>
+
+                        <strong class="danger-text">
+                            3,131
+                        </strong>
+
+                    </div>
+
+
+                    <div class="dataset-item">
+
+                        <span>
+                            Normal transactions
+                        </span>
+
+                        <strong>
+                            148,535
+                        </strong>
+
+                    </div>
+
+
+                    <div class="dataset-item">
+
+                        <span>
+                            Fraud rate
+                        </span>
+
+                        <strong>
+                            2.06%
+                        </strong>
+
+                    </div>
+
+
+                    <div class="dataset-item">
+
+                        <span>
+                            Dataset columns
+                        </span>
+
+                        <strong>
+                            18
+                        </strong>
+
+                    </div>
+
+
+                    <div class="dataset-item">
+
+                        <span>
+                            Target
+                        </span>
+
+                        <strong>
+                            is_fraud
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- SYSTEM STATUS -->
+
+            <div class="panel">
+
+                <div class="panel-header">
+
+                    <div>
+
+                        <h2>
+                            ML pipeline
+                        </h2>
+
+                        <p>
+                            Current implementation status
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="pipeline">
+
+
+                    <div class="pipeline-item">
+
+                        <div class="pipeline-icon">
+                            ✓
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Dataset
+                            </strong>
+
+                            <span>
+                                Raw UPI transaction data
+                            </span>
+
+                        </div>
+
+                        <span class="complete">
+                            Ready
+                        </span>
+
+                    </div>
+
+
+                    <div class="pipeline-item">
+
+                        <div class="pipeline-icon">
+                            ✓
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Preprocessing
+                            </strong>
+
+                            <span>
+                                Data cleaning & preparation
+                            </span>
+
+                        </div>
+
+                        <span class="complete">
+                            Ready
+                        </span>
+
+                    </div>
+
+
+                    <div class="pipeline-item">
+
+                        <div class="pipeline-icon">
+                            ✓
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Feature Engineering
+                            </strong>
+
+                            <span>
+                                Transaction features
+                            </span>
+
+                        </div>
+
+                        <span class="complete">
+                            Ready
+                        </span>
+
+                    </div>
+
+
+                    <div class="pipeline-item">
+
+                        <div class="pipeline-icon">
+                            ✓
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Behavioral Analysis
+                            </strong>
+
+                            <span>
+                                Dₐ · Df · Dg · Dt · BDS
+                            </span>
+
+                        </div>
+
+                        <span class="complete">
+                            Ready
+                        </span>
+
+                    </div>
+
+
+                    <div class="pipeline-item">
+
+                        <div class="pipeline-icon pending">
+                            •
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                XGBoost
+                            </strong>
+
+                            <span>
+                                Fraud classification
+                            </span>
+
+                        </div>
+
+                        <span class="pending-text">
+                            Pending
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             BEHAVIORAL FEATURES
+        ========================== -->
+
+        <section class="panel behavioral-panel">
+
+            <div class="panel-header">
+
+                <div>
+
+                    <h2>
+                        Behavioral analysis
+                    </h2>
+
+                    <p>
+                        Features used to identify unusual user behaviour
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="behavior-grid">
+
+
+                <div class="behavior-card">
+
+                    <div class="behavior-code">
+                        D<sub>A</sub>
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Amount Deviation
+                        </strong>
+
+                        <p>
+                            Measures how unusual the transaction amount
+                            is compared with the user's historical pattern.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="behavior-card">
+
+                    <div class="behavior-code">
+                        D<sub>F</sub>
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Frequency Deviation
+                        </strong>
+
+                        <p>
+                            Measures unusual transaction frequency
+                            compared with the user's normal activity.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="behavior-card">
+
+                    <div class="behavior-code">
+                        D<sub>G</sub>
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Graph Deviation
+                        </strong>
+
+                        <p>
+                            Identifies unusual or previously unseen
+                            recipient connections.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="behavior-card">
+
+                    <div class="behavior-code">
+                        D<sub>T</sub>
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Time-Gap Deviation
+                        </strong>
+
+                        <p>
+                            Measures unusual timing between
+                            consecutive transactions.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="bds-box">
+
+                <div>
+
+                    <span>
+                        Behavioral Deviation Score
+                    </span>
+
+                    <strong>
+                        BDS = (Dₐ + Df + Dg + Dt) / 4
+                    </strong>
+
+                </div>
+
+                <span class="range">
+                    0 — 1
+                </span>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             RECENT TRANSACTIONS
+        ========================== -->
+
+        <section class="panel">
+
+            <div class="panel-header">
+
+                <div>
+
+                    <h2>
+                        Recent transactions
+                    </h2>
+
+                    <p>
+                        Latest activity processed by UPI Guard
+                    </p>
+
+                </div>
+
+                <a href="transactions.html">
+                    View all →
+                </a>
+
+            </div>
+
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                TRANSACTION
+                            </th>
+
+                            <th>
+                                AMOUNT
+                            </th>
+
+                            <th>
+                                BDS
+                            </th>
+
+                            <th>
+                                FRAUD PROBABILITY
+                            </th>
+
+                            <th>
+                                DECISION
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="transactionTable">
+
+                        <tr>
+
+                            <td>
+                                <strong>
+                                    TXN-00001
+                                </strong>
+                            </td>
+
+                            <td>
+                                ₹2,500
+                            </td>
+
+                            <td>
+                                0.18
+                            </td>
+
+                            <td class="safe-text">
+                                8%
+                            </td>
+
+                            <td>
+                                <span class="status safe">
+                                    ALLOW
+                                </span>
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                <strong>
+                                    TXN-00002
+                                </strong>
+                            </td>
+
+                            <td>
+                                ₹8,500
+                            </td>
+
+                            <td>
+                                0.61
+                            </td>
+
+                            <td class="warning-text">
+                                72%
+                            </td>
+
+                            <td>
+                                <span class="status warning">
+                                    STEP-UP
+                                </span>
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                <strong>
+                                    TXN-00003
+                                </strong>
+                            </td>
+
+                            <td>
+                                ₹25,000
+                            </td>
+
+                            <td>
+                                0.87
+                            </td>
+
+                            <td class="danger-text">
+                                96%
+                            </td>
+
+                            <td>
+                                <span class="status danger">
+                                    BLOCK
+                                </span>
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             RECENT ALERTS
+        ========================== -->
+
+        <section class="panel">
+
+            <div class="panel-header">
+
+                <div>
+
+                    <h2>
+                        Recent alerts
+                    </h2>
+
+                    <p>
+                        Suspicious activity requiring attention
+                    </p>
+
+                </div>
+
+                <a href="alerts.html">
+                    View all →
+                </a>
+
+            </div>
+
+
+            <div class="alerts-list">
+
+
+                <div class="alert-row">
+
+                    <div class="alert-icon danger-icon">
+                        !
+                    </div>
+
+                    <div class="alert-content">
+
+                        <strong>
+                            Unusual amount deviation
+                        </strong>
+
+                        <span>
+                            TXN-00003 · 2 minutes ago
+                        </span>
+
+                    </div>
+
+                    <span class="risk-high">
+                        96%
+                    </span>
+
+                    <span class="status danger">
+                        BLOCKED
+                    </span>
+
+                </div>
+
+
+                <div class="alert-row">
+
+                    <div class="alert-icon warning-icon">
+                        !
+                    </div>
+
+                    <div class="alert-content">
+
+                        <strong>
+                            New recipient detected
+                        </strong>
+
+                        <span>
+                            TXN-00002 · 8 minutes ago
+                        </span>
+
+                    </div>
+
+                    <span class="risk-medium">
+                        72%
+                    </span>
+
+                    <span class="status warning">
+                        STEP-UP
+                    </span>
+
+                </div>
+
+
+                <div class="alert-row">
+
+                    <div class="alert-icon warning-icon">
+                        !
+                    </div>
+
+                    <div class="alert-content">
+
+                        <strong>
+                            Unusual transaction frequency
+                        </strong>
+
+                        <span>
+                            TXN-00008 · 16 minutes ago
+                        </span>
+
+                    </div>
+
+                    <span class="risk-medium">
+                        64%
+                    </span>
+
+                    <span class="status warning">
+                        REVIEW
+                    </span>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        UPI Guard Admin Console —
+        Prototype fraud detection environment.
+
+    </footer>
+
+
+    <script src="admin.js"></script>
+
+</body>
+
+</html>

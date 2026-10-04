@@ -1,0 +1,18 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "UPI Guard Admin",
+      "email": "admin@upiguard.local",
+      "password": "Admin@123",
+      "role": "admin"
+    },
+    {
+      "id": 2,
+      "name": "Demo User",
+      "email": "user@upiguard.local",
+      "password": "User@123",
+      "role": "user"
+    }
+  ]
+}
