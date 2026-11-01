@@ -1,11 +1,13 @@
 import pandas as pd
 import numpy as np
+from pathlib import Path
 
 # ==============================
 # 1. LOAD DATASET
 # ==============================
 
-df = pd.read_csv("Backend\Raw-UPI-Dataset-Final.csv")
+BASE_DIR = Path(__file__).resolve().parent
+df = pd.read_csv(BASE_DIR / "Raw-UPI-Dataset-Final.csv")
 
 print("Original shape:", df.shape)
 
@@ -167,7 +169,7 @@ features = df[
 # ==============================
 
 features.to_csv(
-    "Backend/basic_features.csv",
+    BASE_DIR / "basic_features.csv",
     index=False
 )
 

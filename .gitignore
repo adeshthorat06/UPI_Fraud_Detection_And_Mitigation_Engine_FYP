@@ -1,34 +1,8 @@
-# Python
+node_modules/
+dist/
+.venv/
+venv/
 __pycache__/
 *.py[cod]
-*.pyo
-
-# Virtual environments
-venv/
-.venv/
-env/
-
-# Environment / secrets
 .env
-.env.*
-
-# IDE
-.vscode/
-.idea/
-
-# Node
-node_modules/
-
-# Build
-dist/
-build/
-
-# Python cache
-.pytest_cache/
-
-# OS
 .DS_Store
-Thumbs.db
-
-# Logs
-*.log
